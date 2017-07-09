@@ -15,4 +15,4 @@ import Starter from 'app/containers/Starter'
 import Routes from 'app/Routes'
 import Test from './Test'
 
-AppRegistry.registerComponent('Goopso', () => Test);
+AppRegistry.registerComponent('Goopso', () => Routes);

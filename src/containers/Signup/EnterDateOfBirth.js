@@ -10,6 +10,7 @@ import {
   TextInput,
   Platform
 } from 'react-native';
+import DatePicker from 'react-native-datepicker'
 
 //import moment from 'moment';
 //import NavigationBar from 'react-native-navbar';
@@ -20,11 +21,15 @@ let     Screen = require('Dimensions').get('window'),
    // NavigationBar = require('react-native-navbar');
 
 class EnterDateOfBirth extends Component {
-static  navigationOptions= {
-        headerStyle: {
-        backgroundColor: '#5a0fb4',
-        elevation: 1},
-          headerTintColor: 'white'
+   constructor(props){
+    super(props)
+    this.state = {date:"2016-05-15"}
+  }
+  static  navigationOptions= {
+      headerStyle: {
+      backgroundColor: '#5a0fb4',
+      elevation: 1},
+      headerTintColor: 'white'
    }
   render() {
     let context = this;
@@ -42,7 +47,34 @@ static  navigationOptions= {
           </View>
           <TouchableOpacity onPress={ ()=>console.log("dtae") }>
             <View style={ styles.inputContainer }>
-              <Text style={{fontSize:16,color:'#ffffff',textAlign:'center',fontFamily:'din round pro'}}>{  }</Text>
+              {/*<Text style={{fontSize:16,color:'#ffffff',textAlign:'center',fontFamily:'din round pro'}}>{  }</Text>*/}
+              <DatePicker
+                  style={{width: 200}}
+                  date={this.state.date}
+                  mode="date"
+                  showIcon={false}
+                  placeholder="select date"
+                  format="YYYY-MM-DD"
+                  minDate="2016-05-01"
+                  maxDate="2016-06-01"
+                  confirmBtnText="Confirm"
+                  cancelBtnText="Cancel"
+                  customStyles={{
+                      dateInput: {
+                        marginLeft: 36,
+                        borderWidth: 0,
+                        borderBottomWidth: 1,
+                       
+                        //backgroundColor: 'red'
+                      },
+                      dateText : {
+                         color:'#ffffff',
+                         fontSize: 16
+                      }
+                    // ... You can check the source to find the other keys.
+                  }}
+                  onDateChange={(date) => {this.setState({date: date})}}
+                />
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={()=>navigate('EnterUsername')} style={{alignItems:'center',justifyContent:'center',marginTop:(Screen.height/100)*25,marginHorizontal:10,padding:15,backgroundColor:'#ffffff',borderWidth:1,borderColor:'transparent',borderRadius:5,}}>

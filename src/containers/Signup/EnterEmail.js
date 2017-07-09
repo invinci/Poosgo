@@ -55,7 +55,7 @@ class EnterEmail extends Component {
             />
           </View>
           <TouchableOpacity onPress={()=>navigate('EnterPhoneNumber')}
-          style={{marginTop:(Screen.height/100)*25,alignItems:'center',justifyContent:'center',marginVertical:10,marginHorizontal:10,padding:15,backgroundColor:'#ffffff',borderWidth:1,borderColor:'transparent',borderRadius:5,}}>
+          style={{marginTop:(Screen.height/100)*15,backgroundColor:'red',alignItems:'center',justifyContent:'center',marginVertical:10,marginHorizontal:10,padding:15,backgroundColor:'#ffffff',borderWidth:1,borderColor:'transparent',borderRadius:5,}}>
             <Text style={{color:'#5a0fb4', fontWeight:'700',fontSize:18,fontFamily:'din round pro'}}>CONTINUE</Text>
           </TouchableOpacity>
         </View>

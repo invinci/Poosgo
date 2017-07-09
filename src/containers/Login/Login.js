@@ -140,7 +140,8 @@ class Login extends Component {
             <Text style={{color:'#b7b7b7',fontSize:16,fontWeight:'600',fontFamily:'din round pro'}}>USERNAME/EMAIL</Text>
           </View>
           <View style={styles.inputContainer}>
-            <TextInput
+            <TextInput 
+              underlineColorAndroid='transparent'
               autoCapitalize='none'
               autoCorrect={false}
               style={{flex:1,fontSize:16,fontWeight:'700',color:'#ffffff',fontFamily:'din round pro'}}
@@ -152,6 +153,7 @@ class Login extends Component {
           </View>
           <View style={styles.inputContainer}>
             <TextInput
+              underlineColorAndroid='transparent'
               autoCorrect={false}
               password={true}
               style={{flex:1,fontSize:16,fontWeight:'700',color:'#ffffff',fontFamily:'din round pro'}}
@@ -178,7 +180,7 @@ const styles = StyleSheet.create({
     marginVertical:16,
     marginHorizontal:(Screen.width/100)*10,
     borderColor:'#b7b7b7',
-    height:30,
+    height:50,
   }
 });
 

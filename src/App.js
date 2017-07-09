@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+-
 
 import configureStore from './store/configureStore';
 
@@ -12,7 +12,7 @@ const store = configureStore();
 
 const App = () => (
 <Provider store={store}>
-    <Routes/>
+    <Test/>
 </Provider>
 );
 

@@ -6,13 +6,13 @@ var _react2 = babelHelpers.interopRequireDefault(_react);
 
 var _reactNative = require('react-native');
 
-var _reactNativeCountryCodeTelephoneInput = require('react-native-country-code-telephone-input');
-
-var _reactNativeCountryCodeTelephoneInput2 = babelHelpers.interopRequireDefault(_reactNativeCountryCodeTelephoneInput);
-
 var _reactNativeCountryPickerModal = require('react-native-country-picker-modal');
 
 var _reactNativeCountryPickerModal2 = babelHelpers.interopRequireDefault(_reactNativeCountryPickerModal);
+
+var _reactNativePhoneInput = require('react-native-phone-input');
+
+var _reactNativePhoneInput2 = babelHelpers.interopRequireDefault(_reactNativePhoneInput);
 
 var _reactNativeDeviceInfo = require('react-native-device-info');
 
@@ -41,6 +41,11 @@ var EnterEmail = function (_Component) {
       mobileNum: '',
       dataAll: {}
     };
+    _this.onPressFlag = _this.onPressFlag.bind(_this);
+    _this.selectCountry = _this.selectCountry.bind(_this);
+    _this.state = {
+      cca2: _reactNativeDeviceInfo2.default.getDeviceCountry()
+    };
     return _this;
   }
 
@@ -55,18 +60,22 @@ var EnterEmail = function (_Component) {
       });
     }
   }, {
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      var code = _reactNativeDeviceInfo2.default.getDeviceCountry();
-      var dataAll = {};
-      for (var i = 0; i < _data2.default.length; i++) {
-        console.log(_data2.default[i]);
-        if (_data2.default[i].code === code) {
-          dataAll = _data2.default[i];
-          this.setState({ dataAll: dataAll });
-          return;
-        }
-      }
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.setState({
+        pickerData: this.refs.phone.getPickerData()
+      });
+    }
+  }, {
+    key: 'onPressFlag',
+    value: function onPressFlag() {
+      this.refs.countryPicker.openModal();
+    }
+  }, {
+    key: 'selectCountry',
+    value: function selectCountry(country) {
+      this.refs.phone.selectCountry(country.cca2.toLowerCase());
+      this.setState({ cca2: country.cca2 });
     }
   }, {
     key: 'validateEmail',
@@ -81,11 +90,10 @@ var EnterEmail = function (_Component) {
       }
     }
   }, {
-    key: 'submit',
-    value: function submit() {}
-  }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       var dataAll = this.state.dataAll;
       console.log(dataAll);
       var context = this;
@@ -93,28 +101,28 @@ var EnterEmail = function (_Component) {
         _reactNative.View,
         { style: { flex: 1 }, __source: {
             fileName: _jsxFileName,
-            lineNumber: 114
+            lineNumber: 82
           }
         },
         _react2.default.createElement(
           _reactNative.View,
           { style: styles.container, __source: {
               fileName: _jsxFileName,
-              lineNumber: 116
+              lineNumber: 84
             }
           },
           _react2.default.createElement(
             _reactNative.View,
             { style: { alignItems: 'center', marginTop: Screen.height / 100 * 5 }, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 117
+                lineNumber: 85
               }
             },
             _react2.default.createElement(
               _reactNative.Text,
               { style: { fontSize: 22, fontWeight: '700', color: '#ffffff', fontFamily: 'din round pro' }, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 118
+                  lineNumber: 86
                 }
               },
               'Enter Mobile Number'
@@ -124,40 +132,109 @@ var EnterEmail = function (_Component) {
             _reactNative.View,
             { style: { marginHorizontal: Screen.width / 100 * 10, marginTop: Screen.height / 100 * 6 }, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 120
+                lineNumber: 88
               }
             },
             _react2.default.createElement(
               _reactNative.Text,
               { style: { color: '#b7b7b7', fontSize: 16, fontWeight: '600', fontFamily: 'din round pro' }, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 121
+                  lineNumber: 89
                 }
               },
               'Mobile Number'
             )
           ),
-          _react2.default.createElement(_reactNativeCountryCodeTelephoneInput2.default, {
-            countryHint: { name: this.state.dataAll.name, cca2: this.state.dataAll.code, callingCode: dataAll.dial_code },
-            onChange: this.PhoneNumberPickerChanged.bind(this), __source: {
-              fileName: _jsxFileName,
-              lineNumber: 123
-            }
-          }),
+          _react2.default.createElement(
+            _reactNative.View,
+            { style: [styles.containerPhone, { marginTop: -200 }], __source: {
+                fileName: _jsxFileName,
+                lineNumber: 91
+              }
+            },
+            _react2.default.createElement(
+              _reactNative.View,
+              { style: { flex: 0.2 }, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 92
+                }
+              },
+              _react2.default.createElement(_reactNativePhoneInput2.default, {
+                ref: 'phone',
+                onPressFlag: this.onPressFlag,
+                textStyle: { color: 'white' },
+                style: { height: 40, borderBottomWidth: 1, borderColor: 'white' },
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 93
+                }
+              }),
+              _react2.default.createElement(
+                _reactNativeCountryPickerModal2.default,
+                {
+                  ref: 'countryPicker',
+                  onChange: function onChange(value) {
+                    return _this2.selectCountry(value);
+                  },
+                  translation: 'eng',
+                  cca2: this.state.cca2,
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 99
+                  }
+                },
+                _react2.default.createElement(_reactNative.View, {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 105
+                  }
+                })
+              )
+            ),
+            _react2.default.createElement(
+              _reactNative.View,
+              { style: { flex: 0.8 }, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 108
+                }
+              },
+              _react2.default.createElement(
+                _reactNative.View,
+                { style: styles.inputContainer, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 109
+                  }
+                },
+                _react2.default.createElement(_reactNative.TextInput, {
+                  autoCapitalize: 'none',
+                  autoCorrect: false,
+                  underlineColorAndroid: 'transparent',
+                  style: { flex: 1, fontSize: 17, fontWeight: '700', color: '#ffffff', fontFamily: 'din round pro' },
+                  onChangeText: function onChangeText(username) {
+                    return context.setState({ username: username });
+                  },
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 110
+                  }
+                })
+              )
+            )
+          ),
           _react2.default.createElement(
             _reactNative.TouchableOpacity,
             { onPress: function onPress() {
                 return context.submit();
-              }, style: { marginTop: Screen.height / 100 * 15, alignItems: 'center', justifyContent: 'center', marginVertical: 10, marginHorizontal: 10, padding: 15, backgroundColor: '#ffffff', borderWidth: 1, borderColor: 'transparent', borderRadius: 5 }, __source: {
+              }, style: { marginTop: -(Screen.height / 100) * 5, alignItems: 'center', justifyContent: 'center', marginVertical: 10, marginHorizontal: 10, padding: 15, backgroundColor: '#ffffff', borderWidth: 1, borderColor: 'transparent', borderRadius: 5 }, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 126
+                lineNumber: 120
               }
             },
             _react2.default.createElement(
               _reactNative.Text,
               { style: { color: '#5a0fb4', fontWeight: '700', fontSize: 18, fontFamily: 'din round pro' }, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 127
+                  lineNumber: 121
                 }
               },
               'CONTINUE'
@@ -183,13 +260,30 @@ var styles = _reactNative.StyleSheet.create({
     flex: 1,
     backgroundColor: '#5a0fb4'
   },
-  inputContainer: {
-    borderBottomWidth: 1,
-    marginVertical: 16,
-    marginHorizontal: Screen.width / 100 * 10,
-    borderColor: '#b7b7b7',
-    height: 30
-  }
+
+  containerPhone: {
+    flex: 1,
+    alignItems: 'center',
+    padding: 20,
+
+    flexDirection: 'row'
+  },
+  inputContainer: babelHelpers.extends({}, _reactNative.Platform.select({
+    ios: {
+      borderBottomWidth: 1,
+      marginVertical: 16,
+      marginHorizontal: Screen.width / 100 * 10,
+      borderColor: '#b7b7b7',
+      height: 30
+    },
+    android: {
+      borderBottomWidth: 1,
+      marginVertical: 5,
+      marginHorizontal: Screen.width / 100 * 10,
+      borderColor: '#b7b7b7',
+      height: 40
+    }
+  }))
 });
 
 module.exports = EnterEmail;

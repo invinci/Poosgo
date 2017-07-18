@@ -33,21 +33,11 @@ return{
  }
 
 }
-export  const loginChecking=({email,password,navigate})=>(dispatch)=>{
+export  const loginChecking=({username,password,navigate})=>(dispatch)=>{
 
-dispatch({type:LOGIN_CHECK});
 
-Api.makeRequest('POST',URL.LOGIN_URL,{},{email:'testdemo@demo.com',password:'testdemo'})
-   .then((response) => response.json())
-   .then((responseJson) =>{
 
-    dispatch({type: LOGIN_SUCCESSFULL});
-     navigate('Home');
-  })
-  .catch((error) => {
-        dispatch({type: LOGIN_FAIL});
-        alert('Login Failed');
-    });
+ alert(username,password)
 
 
 

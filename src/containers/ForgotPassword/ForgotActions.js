@@ -16,18 +16,6 @@ return {
 
 export const forgotPassword=({email})=>(dispatch)=>{
 
- dispatch({type:FORGOT_CHECK});
-Api.makeRequest('POST',URL.FORGOT_PASSWORD,{},{email})
- .then((response) => response.json())
- .then((responseJson) =>{
-   console.log(responseJson,"forgot");
-   
-    dispatch({type:FORGOT_SUCCESSFULL});
-})
-.catch((error) => {
-
-    dispatch({type:FORGOT_FAIL});
-  });
-
+alert(email)
 
 }

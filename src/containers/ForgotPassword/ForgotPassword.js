@@ -1,160 +1,151 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   View,
-  StatusBar,
-  Dimensions,
-  KeyboardAvoidingView,
   Image,
-  TouchableHighlight,
-  ScrollView,
-  Platform,
-  ActivityIndicator
+  Dimensions,
+  TouchableOpacity,
+  TextInput,
+   Platform
+
 } from 'react-native';
-//import Icon from 'react-native-vector-icons/FontAwesome';
-import { Button, SocialIcon } from 'react-native-elements';
 import {connect} from 'react-redux';
-import InputWithIcon  from 'app/components/InputWithIcon';
-import Loading from 'app/components/Loading';
-import Icon from 'react-native-vector-icons/Ionicons';
-//import {Actions} from 'react-native-router-flux';
 import {forgotUpdate,forgotPassword} from './ForgotActions'
-import styles from './style';
 
-//import Hr from 'react-native-hr'
-const {width,height}=Dimensions.get('window');
+let Screen = require('Dimensions').get('window'),
+    {height, width} = Dimensions.get('window');
 
- class ForgotPassword extends Component {
-        static navigationOptions= {
-                header: null
-            }
+   // NavigationBar = require('react-native-navbar');
 
-   setFocus(event, heightUp){
+class ForgotPassword extends Component {
+  static  navigationOptions= {
+           headerStyle: {
+           backgroundColor: '#5a0fb4',
+           elevation: 1},
+           headerTintColor: 'white',
 
-     this.refs.scrollView.scrollTo({y: height-heightUp, animated: true});
-   }
-handleSend=(email)=>{
-        let intRegex = /[0-9 -()+]+$/;
-       let eml = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-       if(intRegex.test(email)) {
+     }
+  constructor(props){
+    super(props);
+    this.state={
+      email:'',
+      error:''
+    }
+  }
+  submit=()=>{
+   let pattern =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const {email}=this.props;
+    const {navigate}=this.props.navigation;
+              if(!email){
+                this.setState({error:'Email is required'})
+              }else if(!pattern.test(email)){
+                   this.setState({error:'Insert a valid Email'})
 
-           if((email.length < 9) || (!intRegex.test(email)))
-        {
-             alert('Invalid Mobile Number');
-             //return false;
-        }
+              }else{
+                  //alert(pattern.test(email))
+                this.props.forgotPassword({email});
 
-        }   else if (eml.test(email) == false) {
-                alert("Invalid Email ID");
+              }
 
-         }else{
-
-            this.props.forgotPassword({email});
-
-
-         }
-
-
-
-}
+      }
   render() {
-const {email,password,loading,forgotUpdate,navigation}=this.props;
-console.log("loading",loading);
+  const {email,loading,success,forgotUpdate,forgotPassword}=this.props;
     return (
+      <View style={{flex:1}}>
 
-
-
-        <ScrollView  ref="scrollView" contentContainerStyle={{flex:1,  justifyContent: 'center'}}>
-
-       <View style={styles.container}>
-          <Image resizeMode="stretch" style={styles.canvas} source={require('./Images/Logo/logo.png')} />
-        </View>
-        <View style={styles.icon}>
-         <TouchableHighlight style={{flex:1}} onPress={()=>navigation.goBack(null)} underlayColor={'transparent'}>
-         <Icon name="md-arrow-round-back" size={30} color="#FFFFFF"   />
-         </TouchableHighlight>
-         </View>
-        <View style={styles.headingMain}>
-            <View style={styles.subHeadingMain}>
-              <View style={{alignSelf:'center'}}>
-                  <Text style={styles.headingText}>Forgot Password? </Text>
-              </View>
-
-              <View style={styles.subHeadingMainTwo}>
-                  <Text style={styles.headingTextTwo}>We just need your registered </Text>
-                  <Text style={styles.headingTextThree}>Mobile No. </Text>
-              </View>
-              <View style={styles.subHeadingMainThree}>
-                  <Text style={styles.headingTextTwo}>or </Text>
-                  <Text style={styles.headingTextThree}>Email Id </Text>
-                  <Text style={styles.headingTextTwo}>to send your password </Text>
-              </View>
-              <View style={styles.subHeadingMainThree}>
-                  <Text style={styles.headingTextTwo}>reset instruction. </Text>
-              </View>
-            </View>
-            {loading?
-             <View style={{position:'relative',bottom:180,left:0}}>
-               <ActivityIndicator  color={'#FF57A5'} />
-             </View>
-             :null
-             }
-          <View style={styles.inputTextMain}>
-            <View style={styles.inputTextSub}>
-                  <InputWithIcon
-                    iconName={ require('./Images/mail/mail.png')}
-                    value={email}
-                    secureTextEntry={false}
-                    placeholder="Email or Mobile No."
-                    onFocus={(event) => {
-                      this.setFocus(event, (height-100));
-                      }}
-                      onBlur={(event) => {
-                        this.setFocus(event, height);
-                        }}
-                    keyboardType="default"
-                    placeholderTextColor="#333333"
-                   onChangeText={(text)=>forgotUpdate({prop:'email',value:text})}
-                  />
-              </View>
-
-              <View style={styles.btnMain}>
-              <Button
-                buttonStyle={styles.btnStyle}
-                textStyle={styles.btnTextStyle}
-                title={`Send`}
-                onPress={()=>this.handleSend(email)}
-              />
-
-              </View>
-              <View style={{height:20}}/>
+        <View style={styles.container}>
+          <View style={{alignItems:'center', marginTop:(Screen.height/100)*5}}>
+            <Text style={styles.head}>Reset Password</Text>
           </View>
-            </View>
+          <View style={{alignItems:'center',justifyContent:'center', marginTop:(Screen.height/100)*2}}>
+            <Text style={styles.forgottext}>Enter your email below to reset</Text>
+               <Text style={styles.forgottext}>your password</Text>
+          </View>
+          <View style={{marginHorizontal:(Screen.width/100)*10,marginTop:(Screen.height/100)*10}}>
+            <Text style={{color:'#b7b7b7',fontSize:18,fontWeight:'700',fontFamily:'din round pro'}}>EMAIL</Text>
+          </View>
+          <View style={styles.inputContainer}>
+            <TextInput
+              autoCapitalize='none'
+              autoCorrect={false}
+              keyboardType='email-address'
+              underlineColorAndroid='transparent'
+              value={email}
+              style={{flex:1,fontSize:16,fontWeight:'700',color:'#ffffff',fontFamily:'din round pro'}}
+              onChangeText={(email) => forgotUpdate({prop:'email',value:email})}
+            />
+          </View>
+          <View style={{height:30,alignItems:'center',justifyContent:'center'}}>
+          <Text style={styles.error}>{this.state.error}</Text>
 
-            </ScrollView>
-
-
-
+          </View>
+          <TouchableOpacity onPress={()=>this.submit()} style={styles.loginButton}>
+            <Text style={{color:'#5a0fb4', fontWeight:'700',fontSize:22,fontFamily:'din round pro'}}>SUBMIT</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
     );
   }
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#5a0fb4',
+  },
+  inputContainer:{
+    ...Platform.select({
+     ios: {
+       borderBottomWidth:1,
+       marginVertical:5,
+       marginHorizontal:(Screen.width/100)*10,
+       borderColor:'#b7b7b7',
+       height:30,
+     },
+     android: {
+       borderBottomWidth:1,
+       marginVertical:5,
+       marginHorizontal:(Screen.width/100)*10,
+       borderColor:'#b7b7b7',
+       height:40,
+     },
+   })
+ },
+ loginButton:{
+   marginTop:(Screen.height/100)*15,
+   alignItems:'center',
+   justifyContent:'center',
+   marginVertical:20,
+   marginHorizontal:10,
+   padding:15,
+   backgroundColor:'#ffffff',
+   borderWidth:1,borderColor:'transparent',borderRadius:5,
+ },
+ forgottext:{
+   fontSize:18,
+   fontWeight:'600',
+   color:'rgba(255,255,255,.9)',
+   fontFamily:'din round pro',textAlign:'center'
+ },
+ head:{
+   fontSize:22,
+   fontWeight:'700',
+   color:'#ffffff',
+   fontFamily:'din round pro'
+ },
+ error:{
+   color:'red',
+   fontSize:18,
+   fontWeight:'700',
+   fontFamily:'din round pro'
+ }
+});
 const mapStateToProps=({Forgot})=>{
   const {email,loading,success}=Forgot;
-return{
-    email,
-    loading,
-    success
-
-}
+   return{
+          email,loading,success
+   }
 
 }
 export default connect(mapStateToProps,{forgotUpdate,forgotPassword})(ForgotPassword);

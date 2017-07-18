@@ -12,8 +12,9 @@ import {
 
 import Starter from 'app/containers/Starter'
 //import Login from 'app/containers/Login'
-import Routes from 'app/Routes'
+import App from 'app/App'
 import Test from './Test'
+import ForgotPassword from 'app/containers/ForgotPassword'
 
 
-AppRegistry.registerComponent('Goopso', () => Routes);
+AppRegistry.registerComponent('Goopso', () => ForgotPassword);

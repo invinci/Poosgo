@@ -30,9 +30,11 @@ container:{
     borderRadius:5
   },
   loginText:{
-    color:'#5a0fb4',
+
+     fontSize:22,
      fontWeight:'700',
-     fontSize:18,
+     color:'#5a0fb4',
+     fontFamily:'din round pro'
   },
   signupContainer:{
     flex:1,
@@ -47,8 +49,9 @@ container:{
   },
   signupText:{
     color:'#ffffff',
-     fontWeight:'700',
-     fontSize:18, 
+    fontSize:22,
+    fontWeight:'700',
+    fontFamily:'din round pro'
   }
 
 });

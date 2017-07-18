@@ -9,7 +9,8 @@ import {
   TextInput,
    Platform
 } from 'react-native';
-
+import {connect} from 'react-redux';
+import {SignupUpdate} from './SignupActions';
 
 let Screen = require('Dimensions').get('window'),
     {height, width} = Dimensions.get('window');
@@ -28,22 +29,26 @@ class EnterUsername extends Component {
     super(props);
     this.state={
       username:'',
+      error:''
     }
   }
 
-  submit(){
-    let context = this;
-    if(context.state.username == '' && !context.state.username.trim()){
-      alert('Please enter username')
+  submit=()=>{
+   const {navigate}=this.props.navigation;
+    if(this.state.username == '' && !this.state.username.trim()){
+      this.setState({error:'Please enter username'})
     }
     else{
+      this.props.SignupUpdate({prop:'username',value:this.state.username})
+     navigate('EnterPassword')
 
     }
   }
 
+
   render() {
-    let context = this;
-    const {navigate}=this.props.navigation;
+     const {username}=this.props;
+
     return (
       <View style={{flex:1}}>
 
@@ -52,18 +57,22 @@ class EnterUsername extends Component {
             <Text style={{fontSize:22,fontWeight:'700',color:'#ffffff',fontFamily:'din round pro'}}>Enter Username</Text>
           </View>
           <View style={{marginHorizontal:(Screen.width/100)*10,marginTop:(Screen.height/100)*6}}>
-            <Text style={{color:'#b7b7b7',fontSize:16,fontWeight:'600',fontFamily:'din round pro'}}>Username</Text>
+            <Text style={{color:'#b7b7b7',fontSize:16,fontWeight:'600',fontFamily:'din round pro'}}>USERNAME</Text>
           </View>
           <View style={styles.inputContainer}>
             <TextInput
               autoCapitalize='none'
               autoCorrect={false}
               underlineColorAndroid='transparent'
+              value={this.state.username}
               style={{flex:1,fontSize:17,fontWeight:'700',color:'#ffffff',fontFamily:'din round pro',}}
-              onChangeText={(username) => context.setState({username})}
+              onChangeText={(username) =>this.setState({username})}
             />
           </View>
-          <TouchableOpacity onPress={()=>navigate('EnterPassword')} style={{marginTop:(Screen.height/100)*25,alignItems:'center',justifyContent:'center',marginVertical:10,marginHorizontal:10,padding:15,backgroundColor:'#ffffff',borderWidth:1,borderColor:'transparent',borderRadius:5,}}>
+          <View style={{height:30,alignItems:'center',justifyContent:'center',marginTop:20}}>
+          <Text style={styles.error}>{this.state.error}</Text>
+          </View>
+          <TouchableOpacity onPress={()=>this.submit()} style={{marginTop:(Screen.height/100)*25,alignItems:'center',justifyContent:'center',marginVertical:10,marginHorizontal:10,padding:15,backgroundColor:'#ffffff',borderWidth:1,borderColor:'transparent',borderRadius:5,}}>
             <Text style={{color:'#5a0fb4', fontWeight:'700',fontSize:18,fontFamily:'din round pro'}}>CONTINUE</Text>
           </TouchableOpacity>
         </View>
@@ -97,7 +106,19 @@ const styles = StyleSheet.create({
      },
    })
 
-  }
+ },
+ error:{
+   color:'red',
+   fontSize:18,
+   fontWeight:'700',
+   fontFamily:'din round pro'
+ }
 });
+const mapStateToProps=({Signup})=>{
+   const {username}=Signup;
+   return{
+     username
+   }
 
-module.exports = EnterUsername;
+}
+export default connect(mapStateToProps,{SignupUpdate})(EnterUsername)

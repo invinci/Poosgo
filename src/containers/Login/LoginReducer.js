@@ -1,6 +1,6 @@
 import {LOGIN_UPDATE,LOGIN_CHECK,LOGIN_SUCCESSFULL,LOGIN_FAIL,LOG_OUT} from './LoginAction';
 import {REHYDRATE} from 'redux-persist/constants'
-const INITIAL_STATE={email:'',password:'',loading:false,auth:false,user:{}}
+const INITIAL_STATE={username:'',password:'',loading:false,auth:false,user:{}}
 export default (state=INITIAL_STATE,action)=>{
  switch (action.type) {
    case REHYDRATE:

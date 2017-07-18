@@ -7,9 +7,13 @@ import {
   Dimensions,
   TouchableOpacity,
   AsyncStorage,
-  TextInput
+  TextInput,
+  Platform
 } from 'react-native';
 import Starter from '../Starter'
+//import Spinner from 'react-native-loading-spinner-overlay';
+import {loginUpdate,loginChecking,logout} from './LoginAction'
+import { connect } from 'react-redux'
 //import RestService from '../utilities/RestService';
 //import Spinner from 'react-native-loading-spinner-overlay';
 //import NavigationBar from 'react-native-navbar';
@@ -29,7 +33,10 @@ class Login extends Component {
            backgroundColor: '#5a0fb4',
            elevation: 1},
            headerTintColor: 'white',
-          
+
+     }
+     componentWillMount(){
+       this.props.logout();
      }
   constructor(props){
     super(props);
@@ -38,60 +45,20 @@ class Login extends Component {
       username:'',
       password:'',
       latitude:'30.7046',
-      longitude:'76.7179'
+      longitude:'76.7179',
+      active:false
     }
   }
 
 
 
-  logIn(){
-  //  let context = this;
-        // payLoad = {
-        //   "login_email":context.state.username,
-        //   "password": context.state.password,
-        //   "location": {
-        //     "lat": context.state.latitude,
-        //     "long": context.state.longitude
-        //   }
-        // };
-    // if(context.state.username == ''){
-    //   alert('Please enter your registered email or username')
-    // }
-    // else if(context.state.password == ''){
-    //   alert('Please enter your password')
-    // }
-    // else{
-    //     context.setState({
-    //       isVisible:true
-    //     })
-    //     RestService.putHttp('User/login', payLoad).then((result) => {
-    //       context.setState({
-    //         isVisible:false
-    //       })
-    //       if(result.statusCode == 200){
-    //         context.props.navigator.resetTo({
-    //             component: require('./LocateMap'),
-    //             // passProps: {
-    //             //   getMapPosition: context.locatePosition,
-    //             //   login_token: token
-    //             // }
-    //           })
-    //       }
-    //       else{
-    //         alert(result.message)
-    //       }
-    //   })
+  logIn(username,password){
 
-              // context.props.navigator.resetTo({
-              //   component: require('./LocateMap'),
-              //   passProps: {
-              //     getMapPosition: context.locatePosition,
-              //     login_token: "dghfgfhdghfdghfg"
-              //   }
-              // })
-              // return;
+    const { navigate } = this.props.navigation;
 
-  //
+    this.props.loginChecking({username,password,navigate})
+
+
   }
   forgotPassword(){
     // let context = this;
@@ -102,32 +69,13 @@ class Login extends Component {
 
   componentDidMount(){
     // let  context = this;
-    // context.locatePosition()
   }
-
-  locatePosition(ulat, ulng) {
-    // let context = this;
-    // lat = ulat, lng = ulng;
-    // navigator.geolocation.getCurrentPosition(
-    //   (position) => {
-    //     var initialPosition = JSON.stringify(position);
-    //     this.setState({initialPosition});
-    //     var crd = position.coords;
-    //     var lat = crd.latitude.toString();
-    //     var long = crd.longitude.toString();
-    //     context.setState({
-    //       latitude: lat,
-    //       longitude: long
-    //     })
-    //   },
-    //   (error) => console.log(JSON.stringify(error)),
-    //   {enableHighAccuracy: true, timeout: 30000, maximumAge: 1000}
-    // );
-  }
+  // context.locatePosition()
 
 
   render() {
-
+const {loginUpdate,username,password,loading,auth} =this.props;
+const { navigate } = this.props.navigation;
     return (
       <View style={{flex:1}}>
 
@@ -137,15 +85,19 @@ class Login extends Component {
             <Text style={{fontSize:22,fontWeight:'700',color:'#ffffff',fontFamily:'din round pro'}}>Log In</Text>
           </View>
           <View style={{marginHorizontal:(Screen.width/100)*10,marginTop:(Screen.height/100)*6}}>
-            <Text style={{color:'#b7b7b7',fontSize:16,fontWeight:'600',fontFamily:'din round pro'}}>USERNAME/EMAIL</Text>
+            <Text style={{color:'#b7b7b7',fontSize:16,fontWeight:'600',fontFamily:'din round pro'}}>USERNAME</Text>
           </View>
           <View style={styles.inputContainer}>
-            <TextInput 
-              underlineColorAndroid='transparent'
+            <TextInput
               autoCapitalize='none'
               autoCorrect={false}
-              style={{flex:1,fontSize:16,fontWeight:'700',color:'#ffffff',fontFamily:'din round pro'}}
-              onChangeText={(username) => context.setState({username})}
+              value={username}
+               underlineColorAndroid='transparent'
+              style={{flex:1,color:'#ffffff',fontSize:16,fontWeight:'600',fontFamily:'din round pro'}}
+              onChangeText={(text) =>{loginUpdate({prop:'username',value:text}),this.setState({active:true}) }}
+              onBlur={()=>{if(username.length>0){this.setState({active:false})}}}
+
+
             />
           </View>
           <View style={{marginHorizontal:(Screen.width/100)*10,marginTop:(Screen.height/100)*6}}>
@@ -153,16 +105,23 @@ class Login extends Component {
           </View>
           <View style={styles.inputContainer}>
             <TextInput
-              underlineColorAndroid='transparent'
               autoCorrect={false}
               password={true}
-              style={{flex:1,fontSize:16,fontWeight:'700',color:'#ffffff',fontFamily:'din round pro'}}
-              onChangeText={(password) => context.setState({password})}
+              value={password}
+              underlineColorAndroid='transparent'
+              style={{flex:1,fontSize:16,fontWeight:'600',color:'#ffffff',fontFamily:'din round pro'}}
+              onChangeText={(text) => {loginUpdate({prop:'password',value:text}),this.setState({active:true})}}
+              onBlur={()=>{if(username.length>0&&password.length>0){this.setState({active:false})}}}
             />
           </View>
-          <TouchableOpacity onPress={()=>context.forgotPassword()}><Text style={{fontSize:16,fontWeight:'700',color:'#ffffff',textAlign:'center',marginVertical:(Screen.height/100)*3,fontFamily:'din round pro'}}>Forgot Your Password?</Text></TouchableOpacity>
-          <TouchableOpacity onPress={()=>context.logIn()} style={{alignItems:'center',justifyContent:'center',marginVertical:10,marginHorizontal:10,padding:15,backgroundColor:'#ffffff',borderWidth:1,borderColor:'transparent',borderRadius:5,}}>
-            <Text style={{color:'#5a0fb4', fontWeight:'700',fontSize:18,fontFamily:'din round pro'}}>LOG IN</Text>
+          <TouchableOpacity onPress={()=>navigate('ForgotPassword')}><Text style={{fontSize:16,fontWeight:'700',color:'#ffffff',textAlign:'center',marginVertical:(Screen.height/100)*3,fontFamily:'din round pro'}}>Forgot Your Password?</Text></TouchableOpacity>
+          <TouchableOpacity
+           onPress={()=>this.logIn({username,password})}
+           style={{flex:1}}
+            >
+                      <View style={this.state.active?styles.loginButtonActive:styles.loginButton}>
+            <Text style={{color:'#5a0fb4', fontWeight:'700',fontSize:22,fontFamily:'din round pro'}}>LOG IN</Text>
+            </View>
           </TouchableOpacity>
         </View>
       </View>
@@ -170,19 +129,66 @@ class Login extends Component {
   }
 }
 
+// fontSize:22,
+// fontWeight:'700',
+// color:'#5a0fb4',
+// fontFamily:'din round pro'
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#5a0fb4',
   },
+  loginButton:{
+    alignItems:'center',
+    justifyContent:'center',
+    marginVertical:10,
+    marginHorizontal:10,
+    padding:15,
+    backgroundColor:'#ffffff',
+    borderWidth:1,borderColor:'transparent',
+    borderRadius:5,
+  },
+  loginButtonActive:{
+    alignItems:'center',
+    justifyContent:'center',
+    marginVertical:10,
+    marginHorizontal:10,
+    padding:15,
+    backgroundColor:'#ffffff',
+    borderWidth:1,borderColor:'transparent',
+    borderRadius:5,
+    opacity:0.3
+  },
+
   inputContainer:{
-    borderBottomWidth:1,
-    marginVertical:16,
-    marginHorizontal:(Screen.width/100)*10,
-    borderColor:'#b7b7b7',
-    height:50,
-  }
+    ...Platform.select({
+     ios: {
+       borderBottomWidth:1,
+       marginVertical:8,
+       marginHorizontal:(Screen.width/100)*10,
+       borderColor:'#b7b7b7',
+       height:30,
+     },
+     android: {
+       borderBottomWidth:1,
+       marginVertical:8,
+       marginHorizontal:(Screen.width/100)*10,
+       borderColor:'#b7b7b7',
+       height:40,
+     },
+   })
+  },
 });
+export const mapStateToProps=({Login})=>{
+const {username,password,loading,auth}=Login;
+    return{
+      username,
+      password,
+      loading,
+      auth
+    }
+
+}
 
 
-module.exports = Login;
+export default connect(mapStateToProps,{loginUpdate,loginChecking,logout})(Login);

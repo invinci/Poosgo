@@ -11,6 +11,8 @@ import {
   Platform
 } from 'react-native';
 import DatePicker from 'react-native-datepicker'
+import {connect} from 'react-redux';
+import {SignupUpdate} from './SignupActions'
 
 //import moment from 'moment';
 //import NavigationBar from 'react-native-navbar';
@@ -21,19 +23,29 @@ let     Screen = require('Dimensions').get('window'),
    // NavigationBar = require('react-native-navbar');
 
 class EnterDateOfBirth extends Component {
-   constructor(props){
-    super(props)
-    this.state = {date:"2016-05-15"}
-  }
+         state={dob:'2016-05-15'};
+
   static  navigationOptions= {
       headerStyle: {
       backgroundColor: '#5a0fb4',
       elevation: 1},
       headerTintColor: 'white'
    }
+   check=()=>{
+     const {dob}=this.props;
+     const {navigate}=this.props.navigation;
+     if(!dob){
+       alert('Please Provide DOB')
+     }else{
+       this.props.SignupUpdate({prop:'dob',value:this.state.dob});
+       navigate('EnterUsername');
+     }
+   }
   render() {
     let context = this;
-    const {navigate}=this.props.navigation;
+
+    const {dob}=this.props;
+    console.log("data",dob);
     return (
       <View style={{flex:1}}>
 
@@ -50,7 +62,7 @@ class EnterDateOfBirth extends Component {
               {/*<Text style={{fontSize:16,color:'#ffffff',textAlign:'center',fontFamily:'din round pro'}}>{  }</Text>*/}
               <DatePicker
                   style={{width: 200}}
-                  date={this.state.date}
+                  date={this.state.dob}
                   mode="date"
                   showIcon={false}
                   placeholder="select date"
@@ -64,7 +76,7 @@ class EnterDateOfBirth extends Component {
                         marginLeft: 36,
                         borderWidth: 0,
                         borderBottomWidth: 1,
-                       
+
                         //backgroundColor: 'red'
                       },
                       dateText : {
@@ -73,11 +85,11 @@ class EnterDateOfBirth extends Component {
                       }
                     // ... You can check the source to find the other keys.
                   }}
-                  onDateChange={(date) => {this.setState({date: date})}}
+                  onDateChange={(date) =>this.setState({dob:date})}
                 />
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={()=>navigate('EnterUsername')} style={{alignItems:'center',justifyContent:'center',marginTop:(Screen.height/100)*25,marginHorizontal:10,padding:15,backgroundColor:'#ffffff',borderWidth:1,borderColor:'transparent',borderRadius:5,}}>
+          <TouchableOpacity onPress={()=>this.check()} style={{alignItems:'center',justifyContent:'center',marginTop:(Screen.height/100)*25,marginHorizontal:10,padding:15,backgroundColor:'#ffffff',borderWidth:1,borderColor:'transparent',borderRadius:5,}}>
             <Text style={{color:'#5a0fb4', fontWeight:'700',fontSize:18,fontFamily:'din round pro'}}>CONTINUE</Text>
           </TouchableOpacity>
         </View>
@@ -121,5 +133,10 @@ const styles = StyleSheet.create({
    backgroundColor: '#FFF',
   },
 });
-
-module.exports = EnterDateOfBirth;
+const mapStateToProps=({Signup})=>{
+  const {dob}=Signup;
+  return{
+    dob
+  }
+}
+export default connect(mapStateToProps,{SignupUpdate})( EnterDateOfBirth)

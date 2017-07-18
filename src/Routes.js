@@ -17,6 +17,7 @@ import EnterUsername from 'app/containers/Signup/EnterUsername'
 import EnterFnameLname from 'app/containers/Signup/EnterFnameLname'
 import EnterPassword from 'app/containers/Signup/EnterPassword'
 import EnterPhoneNumber from 'app/containers/Signup/EnterPhoneNumber'
+import ForgotPassword from 'app/containers/ForgotPassword'
 
 const Signup=StackNavigator({
  EnterFnameLname:{
@@ -45,7 +46,17 @@ const Signup=StackNavigator({
 
 
 })
+const LoginStack=StackNavigator({
+ LoginScreen:{
+   screen:Login
+ },
+ ForgotPassword:{
+   screen:ForgotPassword,
 
+ }
+},{
+    headerMode: 'none',
+})
 
 const Routes = StackNavigator({
   Starter: {
@@ -56,7 +67,8 @@ const Routes = StackNavigator({
     },
   },
   Login:{
-    screen:Login,
+    screen:LoginStack,
+
   },
   Signup:{
     screen:Signup
@@ -66,7 +78,7 @@ const Routes = StackNavigator({
 },
 {
   headerMode: 'screen',
-  
+
 });
 
 

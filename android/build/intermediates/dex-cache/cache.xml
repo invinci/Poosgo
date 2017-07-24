@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/0.11.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d31aadf33187c37a7cd63dc1b769f8c6e33f78c3">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fresco-0.11.0_9416489808d4dbc71aa11297908fa14d212b4739.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/0.11.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="1137942adeb03984c1311b662363dd38fc238fd3">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-drawee-0.11.0_551d06932fbc9380d576a100d416b81c3b713817.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-okhttp3/0.11.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="2b8a01ad9da5d26d0067894c22e87597bca2c500">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-okhttp3-0.11.0_4a9fe0fd355d50470fc48a36dd887ea0aaaecd74.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/root/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-urlconnection/3.4.1/63994437f62bc861bc20c605d12962f7246116d1/okhttp-urlconnection-3.4.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="63994437f62bc861bc20c605d12962f7246116d1">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/okhttp-urlconnection-3.4.1_5c727746038b3e1e013a17ff9e34f821612bb3bb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/11.0.2/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="424e509954db08079f78b20947e2cf120c045e48">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-gcm-11.0.2_42d7555356d2c7951f5db676b60970bcb009370f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/root/.gradle/caches/modules-2/files-2.1/com.facebook.fbui.textlayoutbuilder/staticlayout-proxy/1.0/f162442a19fff13995fbd51ba414d9ee05579080/staticlayout-proxy-1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f162442a19fff13995fbd51ba414d9ee05579080">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/staticlayout-proxy-1.0_b3ccc2babea9a884ceb74ff86b197240a1d61adc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="ee394a892dd21c03a528139c1e8d4e0e1264ac84">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-25.2.0_623cc676e51c6314f242263545527cf3746cca8c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/11.0.2/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d3a27693b28b46af644df8ce765f4252b32c9e87">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-iid-11.0.2_f6b0bf5e9829b83d753bfda16e11ce494ac943f5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/root/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/javax.inject-1_7e84a58f14b03e539c66973b1348dfcc92b37959.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/root/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.4.1/c7c4f9e35c2fd5900da24f9872e3971801f08ce0/okhttp-3.4.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="c7c4f9e35c2fd5900da24f9872e3971801f08ce0">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/okhttp-3.4.1_343c785be2fb1b211f854e846b2089e00c1ee377.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/root/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/library-2.4.0_966625304e7208badec13abab7a99ab1be33bd6f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/root/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.9.0/f824591a0016efbaeddb8300bee54832a1398cfa/okio-1.9.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f824591a0016efbaeddb8300bee54832a1398cfa">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/okio-1.9.0_61317ede12103cd723b266cfd2824f556ff815be.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.2.0_08a3dbe3aeb0381a4532595784efafda080c3932.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/root/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0_8cb1dcf68d89b3835f6b8620276bad0ce2e75a94.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.42.0/jars/libs/infer-annotations-1.5.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="dcac634e137395f79693ec760f081a86eb2bd84e">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/infer-annotations-1.5_685fe968d7694be0934fea6387d0aa04d2157dba.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/exploded-aar/com.facebook.fbui.textlayoutbuilder/textlayoutbuilder/1.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f90b593491e4044903f0bbf68dc3fa2790b151b9">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/com.facebook.fbui.textlayoutbuilder-textlayoutbuilder-1.0.0_e2278603240ef32997e5048ed10c92465a8f212f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/exploded-aar/com.facebook.soloader/soloader/0.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="8f615bca00639150c9eb6175d4b5471193f70794">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/com.facebook.soloader-soloader-0.1.0_5272ac5e67977425ce5edae5c37410e8f6828c6a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="8fe8a8f77d651982ce5e18f6187dc4daf914ac57">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.2.0_4668ca408c12a9fb1af9f7d9df4b33c731e93f18.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/root/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/jsr305-3.0.0_456beae1bfbef6196546d4c957b5e9b726c256ac.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/naveen/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.2.0/support-annotations-25.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="4a5a82a027706397fff621b22fd6fa796e91d7c5">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/support-annotations-25.2.0_a1b318106de3964382c1684d9ffa9fb520781aeb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/0.11.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="ca63c521b5745ae9a09629d7ca67ff6bc2a967fe">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-base-0.11.0_efd0d5bb7a7dce6b100b168227224c64445f1eda.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/exploded-aar/Goopso/react-native-device-info/unspecified/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="2e4336ffc2b7653868134d7f6f8b28523ef54645">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/Goopso-react-native-device-info-unspecified_f40bb510b8948f3f9da97ec44977c94650fb1643.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="e820b7be8c035dd522da4bc822e8a76c8e27921a">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-25.2.0_1c5d119e8759963a249cbae941e44264c1815987.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="fa0446a14ed5dd3725047d6399ffea771a564b30">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.2.0_e56d2989cef6224b1fd5df3ffa42898c85243910.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/11.0.2/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="a71be5f29a1c1e3fd3e84472742668f101a5b936">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-11.0.2_06b9542537c9d397fd2893cb1a86565aa7db9af4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/11.0.2/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="86baa7d1051901fc1b8e7f596732f71f32175bde">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-11.0.2_e6486ce3bfc822d379d538ff30e75688493fb9c4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-23.4.0_48db6e835ef37696c73ae3ed5fde23bf61156119.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.42.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="962b06c207e808c0557ffd6163ac584025a96021">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/com.facebook.react-react-native-0.42.0_f334fa5842955e24a856403bb62542584521cb07.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/0.11.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="3341b66c54367e777a0647e2db96c045329bfeab">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-0.11.0_15bbf5303bd96cf15ecc5d088619483e341f5661.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="67eb33110dbacb46a48175b08ae0c96761d2c17d">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.2.0_84e89fd2d1536a4e0ac1f23f0d763ea56d59c007.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/root/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-ws/3.4.1/8ace66ef7002d98f633377c9e67daeeb196d8c3b/okhttp-ws-3.4.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="8ace66ef7002d98f633377c9e67daeeb196d8c3b">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/okhttp-ws-3.4.1_93d82668838aafa73c8e044befb408c7822a88b3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.0.1_87c4a5d40c035a6843f3c6e8abe3a173820cfeeb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/11.0.2/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="2a2d9cd43adbe7599a78f2293273a77881c1909a">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-11.0.2_064c4e05b3cbb976c16bf17adbf366ac0501cdbf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/0.11.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="98786c1770b531b9194fb6448b2a2692c64074b6">
+        <dex dex="/home/naveen/Desktop/Ravi/Archive (1)/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fbcore-0.11.0_c93d17069591c2022b272e012e29828a1fa3940f.jar" />
+    </item>
+
+</items>
